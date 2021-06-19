@@ -1,6 +1,22 @@
 {
   "version": 2,
   "projects": {
+    "compendium": {
+      "root": "apps/compendium",
+      "projectType": "application",
+      "sourceRoot": "apps/compendium",
+      "targets": {
+        "deploy": {
+          "executor": "@nx-extend/gcp-secrets:deploy"
+        },
+        "encrypt": {
+          "executor": "@nx-extend/gcp-secrets:encrypt"
+        },
+        "decrypt": {
+          "executor": "@nx-extend/gcp-secrets:decrypt"
+        }
+      }
+    },
     "www": {
       "root": "apps/www",
       "sourceRoot": "apps/www/src",
