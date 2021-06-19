@@ -1,6 +1,22 @@
 {
   "version": 2,
   "projects": {
+    "compendium": {
+      "root": "apps/compendium",
+      "projectType": "application",
+      "sourceRoot": "apps/compendium",
+      "targets": {
+        "deploy": {
+          "executor": "@nx-extend/gcp-secrets:deploy"
+        },
+        "encrypt": {
+          "executor": "@nx-extend/gcp-secrets:encrypt"
+        },
+        "decrypt": {
+          "executor": "@nx-extend/gcp-secrets:decrypt"
+        }
+      }
+    },
     "www": {
       "root": "apps/www",
       "sourceRoot": "apps/www/src",
@@ -32,12 +48,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/www/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/www/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/www"],
+          "outputs": [
+            "coverage/apps/www"
+          ],
           "options": {
             "jestConfig": "apps/www/jest.config.js",
             "passWithNoTests": true
@@ -66,7 +86,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/www-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/www-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
